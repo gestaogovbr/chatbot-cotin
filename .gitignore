@@ -1,0 +1,57 @@
+# ----------------------------------------------------------------
+# Arquivos e pastas comuns do Python
+# ----------------------------------------------------------------
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------------------------------------------------
+# Ambientes virtuais e dependências
+# ----------------------------------------------------------------
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+env/
+venv.bak/
+env.bak/
+# Conda environments
+.conda/
+# pipenv files (opcional manter .env se você usa para config)
+Pipfile.lock
+
+# ----------------------------------------------------------------
+# Arquivos de configuração e logs
+# ----------------------------------------------------------------
+.env
+*.log
+
+# ----------------------------------------------------------------
+# Distribuição / Packaging
+# ----------------------------------------------------------------
+build/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+
+# ----------------------------------------------------------------
+# Ferramentas de desenvolvimento / Editor
+# ----------------------------------------------------------------
+
+# Visual Studio Code
+.vscode/
+
+# ----------------------------------------------------------------
+# Sistemas Operacionais
+# ----------------------------------------------------------------
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

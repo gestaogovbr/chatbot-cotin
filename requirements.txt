@@ -1,0 +1,9 @@
+python-dotenv
+langchain
+pymupdf
+langchain-openai
+langchain-chroma
+chromadb
+langchain_community
+pytesseract
+unstructured
