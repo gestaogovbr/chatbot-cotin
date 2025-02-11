@@ -23,6 +23,8 @@ env.bak/
 # pipenv files (opcional manter .env se você usa para config)
 Pipfile.lock
 
+# Banco de Dados 
+.sqlite3
 # ----------------------------------------------------------------
 # Arquivos de configuração e logs
 # ----------------------------------------------------------------
