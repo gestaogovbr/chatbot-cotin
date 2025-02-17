@@ -7,3 +7,6 @@ chromadb
 langchain_community
 pytesseract
 unstructured
+
+
+jinja2
