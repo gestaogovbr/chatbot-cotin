@@ -1,26 +1,30 @@
 import os
 import re
+import warnings
 from dotenv import load_dotenv
 
 # Carregadores e splitters
 from langchain_community.document_loaders import DirectoryLoader, PyMuPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Observação: Verifique se esse import corresponde à sua versão do LangChain
-# Em versões mais novas, "OpenAI" e "ChatOpenAI" vêm de "langchain.chat_models"
-# Se você estiver usando "langchain_openai", ajuste conforme necessário.
-from langchain.chat_models import ChatOpenAI
+# Substituindo ChatOpenAI por ChatDatabricks
+from langchain_community.chat_models import ChatDatabricks
 
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
+# Substituindo OpenAIEmbeddings por DatabricksEmbeddings
+from langchain_community.embeddings import DatabricksEmbeddings
+from langchain_community.vectorstores import Chroma
 
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from langchain.schema import Document
+
+
+warnings.filterwarnings('ignore')
 
 # 1. Carrega variáveis de ambiente
 load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# Utiliza variáveis de ambiente para autenticação no Databricks
+databricks_host = os.getenv("DATABRICKS_HOST")
+databricks_token = os.getenv("DATABRICKS_TOKEN")
 
 # 2. Carrega e indexa documentos
 print("Carregando documentos...")
@@ -33,7 +37,13 @@ texts = text_splitter.split_documents(documents)
 print(f"Total de textos (chunks): {len(texts)}")
 
 db_path = "./chroma_db"
-embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+# Cria embeddings utilizando o modelo do Databricks
+embeddings = DatabricksEmbeddings(
+    host=databricks_host,
+    api_token=databricks_token,
+    endpoint="databricks-bge-large-en"
+)
 
 # Verifica se o diretório db_path existe e não está vazio
 if os.path.exists(db_path) and os.listdir(db_path):
@@ -46,12 +56,12 @@ else:
 
 # 3. Cria retriever
 retriever = db.as_retriever(
-    search_kwargs={"k": 5}  # Aumente o número de documentos retornados
+    search_kwargs={"k": 5}  # Aumente o número de documentos retornados, se necessário
 )
 
 # 4. Define o PromptTemplate (SIC/Geral)
 template = """
-Você é um assistente especializado em responder perguntas com base nos documentos armazenados na base de conhecimento (pasta 'docs').
+Você é um assistente especializado em responder perguntas com base nos documentos armazenados na base de conhecimento (pasta 'docs'). Responda tudo em português do Brasil.
 Priorize as informações desses documentos para fornecer respostas precisas, concisas e baseadas em fatos. Se a resposta for no formato SIC, 
 utilize o modelo request_type == "SIC" de forma completa (itens de 1 a 7) e busque informações na pasta 'docs' para te ajudar na personalização da resposta, 
 substituindo conforme input que receber os trechos sei_number, sic_summary, sic_extract e context. Caso contrário, responda de forma geral.
@@ -179,12 +189,13 @@ prompt_template = PromptTemplate(
     template=template,
 )
 
-# 5. Use ChatOpenAI em vez de OpenAI
-llm = ChatOpenAI(
-    openai_api_key=OPENAI_API_KEY,
-    model_name="gpt-4",  # Exige ter acesso ao GPT-4
-    temperature=0,
+# 5. Usa ChatDatabricks em vez de ChatOpenAI
+llm = ChatDatabricks(
+    host=databricks_host,
+    api_token=databricks_token,
+    endpoint="databricks-dbrx-instruct",
     max_tokens=3000,
+    temperature=0,
 )
 
 llm_chain = LLMChain(llm=llm, prompt=prompt_template)
