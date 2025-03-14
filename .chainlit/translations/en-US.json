@@ -111,7 +111,7 @@
         "settings": {
             "title": "Settings panel"
         },
-        "watermark": "Built with"
+        "watermark": "Developed by COTIN/CGGES/DELOG with"
     },
     "threadHistory": {
         "sidebar": {
@@ -174,7 +174,7 @@
             "button": "New Chat",
             "dialog": {
                 "title": "Create New Chat",
-                "description": "This will clear your current chat history. Are you sure you want to continue?",
+                "description": "This will erase your current conversation history. Are you sure you want to continue?",
                 "tooltip": "New Chat"
             }
         },
