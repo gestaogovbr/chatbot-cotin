@@ -27,6 +27,7 @@ Pipfile.lock
 .sqlite3
 chroma_db/
 docs/
+chroma_db/chroma.sqlite3
 # ----------------------------------------------------------------
 # Arquivos de configuração e logs
 # ----------------------------------------------------------------

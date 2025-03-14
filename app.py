@@ -82,7 +82,6 @@ embeddings = DatabricksEmbeddings(
 )
 
 def filter_relevant_documents(question: str, documents: List) -> List:
-    # Mesma lógica do seu código
     question_embedding = np.array(embeddings.embed_query(question)).reshape(1, -1)
     doc_embeddings = np.array([
         np.array(embeddings.embed_query(doc.page_content))
@@ -160,7 +159,7 @@ llm = ChatDatabricks(
     host=databricks_host,
     api_token=databricks_token,
     endpoint="databricks-dbrx-instruct",
-    max_tokens=3000,  # mantemos 3000, ou reduza se for exceder
+    max_tokens=3000,  # Ajuste conforme necessário
     temperature=0,
 )
 
@@ -175,7 +174,6 @@ llm_chain = LLMChain(
 # 5) ask_question e inicialização do Chroma
 # ================================
 def ask_question(question: str, retriever) -> str:
-    # Mesma lógica do seu código
     docs = retriever.get_relevant_documents(question)
     print(f"[DEBUG] Documentos brutos recuperados: {len(docs)}")
 
@@ -225,6 +223,13 @@ async def main(msg):
     user_text = msg.content if hasattr(msg, "content") else str(msg)
     if not isinstance(user_text, str):
         user_text = str(user_text)
+    
+    # 1) Cria uma mensagem "placeholder" para sinalizar que o bot está pensando.
+    placeholder = await cl.Message(content="Processando, por favor aguarde...").send()
 
+    # 2) Gera a resposta pelo LLM
     resposta = ask_question(user_text, retriever)
-    await cl.Message(content=resposta).send()
+
+    # 3) Atualiza a mensagem de placeholder com o conteúdo final
+    placeholder.content = resposta
+    await placeholder.update()
