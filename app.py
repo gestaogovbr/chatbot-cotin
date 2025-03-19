@@ -159,7 +159,7 @@ llm = ChatDatabricks(
     host=databricks_host,
     api_token=databricks_token,
     endpoint="databricks-dbrx-instruct",
-    max_tokens=3000,  # Ajuste conforme necessário
+    max_tokens=4096,  
     temperature=0,
 )
 
@@ -197,7 +197,7 @@ else:
     db = Chroma.from_documents(texts, embeddings, persist_directory=db_path)
     print(f"{db._collection.count()} documentos indexados no ChromaDB.")
 
-retriever = db.as_retriever(search_kwargs={"k": 30})
+retriever = db.as_retriever(search_kwargs={"k": len(documents)})
 print("Base de conhecimento pronta.")
 
 # ================================
