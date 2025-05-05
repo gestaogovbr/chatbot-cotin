@@ -83,6 +83,7 @@ cot = "full"
 # Specify optional one or more custom links in the header.
 [[UI.header_links]]
      name = "Issues"
+     display_name = "Issues"  # Adicionado este campo que estava faltando
      icon_url = "https://play-lh.googleusercontent.com/QwzIsC_JLnVMm4WQMGfbcpObCWsHkF6b9q9hxHflBaJKjgixktLYosnN-s44-Wr83w=w240-h480"
      url = "https://github.com/Chainlit/chainlit/issues"
 

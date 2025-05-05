@@ -3,7 +3,7 @@ import re
 import warnings
 import numpy as np
 from typing import List
-import chainlit as cl  # <-- Importamos Chainlit
+import chainlit as cl  
 
 from dotenv import load_dotenv
 from sklearn.metrics.pairwise import cosine_similarity
