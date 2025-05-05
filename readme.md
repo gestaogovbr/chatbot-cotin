@@ -19,7 +19,7 @@ Este projeto implementa o **Cotin IA**, uma versão de Inteligência Artificial 
 
 - **Python**
 - **Chainlit** (Interface Conversacional)
-- **Databricks Embeddings**
+- **Databricks Embeddings e LLM**
 - **LangChain**
 - **ChromaDB** (Banco de vetores)
 - **scikit-learn (cosine similarity)**
