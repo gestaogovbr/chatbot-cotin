@@ -44,6 +44,6 @@ DATABRICKS_TOKEN=SEU_TOKEN
 Certifique-se de que os arquivos PDF e DOCX que deseja processar estão dentro do diretório docs/.
 
 4️⃣ Execute o Servidor Chainlit
-chainlit run main.py
+chainlit run app.py
 
 Após isso, acesse o chat interativo e comece a fazer perguntas!

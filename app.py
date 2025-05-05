@@ -160,7 +160,7 @@ memory = ConversationBufferWindowMemory(
 llm = ChatDatabricks(
     host=databricks_host,
     api_token=databricks_token,
-    endpoint="databricks-dbrx-instruct",
+    endpoint="databricks-llama-4-maverick",
     max_tokens=4096,  
     temperature=0,
 )
