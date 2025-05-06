@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cotin-ia"             
+version = "0.2.0"             
+description = "Sistema RAG para transparência em compras públicas"
+readme = "README.md"  
+requires-python = ">=3.9"
+license = { file = "LICENSE" } 
+authors = [
+  { name = "COTIN/CGGES/DELOG"}
+]
+
+dependencies = [
+  "langchain==0.3.25",
+  "chromadb>=0.4.24",
+  # …demais dependências
+]

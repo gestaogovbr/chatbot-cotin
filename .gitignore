@@ -1,16 +1,44 @@
 # ----------------------------------------------------------------
+# Arquivos e pastas específicos do projeto
+# ----------------------------------------------------------------
+# Banco de dados vetorial
+chroma_db/
+# Documentos para processamento (geralmente grandes)
+docs/
+# Arquivos de saída e resultados
+results/
+outputs/
+# Modelos baixados
+models/
+
+# ----------------------------------------------------------------
+# Arquivos de configuração sensíveis
+# ----------------------------------------------------------------
+# Variáveis de ambiente e configurações
+.env
+.env.local
+.env.development
+.env.production
+# Credenciais e chaves de API
+*.pem
+*.key
+credentials.json
+secrets.yaml
+
+# ----------------------------------------------------------------
 # Arquivos e pastas comuns do Python
 # ----------------------------------------------------------------
-
 # Cache do Python
 __pycache__/
 *.py[cod]
 *$py.class
+# Bytecode compilado
+*.so
+.Python
 
 # ----------------------------------------------------------------
 # Ambientes virtuais e dependências
 # ----------------------------------------------------------------
-
 # Virtualenvs
 .venv/
 venv/
@@ -20,43 +48,134 @@ venv.bak/
 env.bak/
 # Conda environments
 .conda/
-# pipenv files (opcional manter .env se você usa para config)
+.anaconda/
+# pipenv
 Pipfile.lock
+# poetry
+poetry.lock
+# pyenv
+.python-version
 
-# Banco de Dados 
-.sqlite3
-chroma_db/
-docs/
-chroma_db/chroma.sqlite3
 # ----------------------------------------------------------------
-# Arquivos de configuração e logs
+# Logs e arquivos temporários
 # ----------------------------------------------------------------
-.env
+# Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Arquivos temporários
+tmp/
+temp/
+.tmp/
+*.tmp
+*.swp
+*.swo
 
 # ----------------------------------------------------------------
 # Distribuição / Packaging
 # ----------------------------------------------------------------
+# Distribuição / packaging
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
 eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
 .installed.cfg
+*.egg
+MANIFEST
+
+# ----------------------------------------------------------------
+# Testes e cobertura
+# ----------------------------------------------------------------
+# Testes unitários / cobertura
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+pytest-report.html
+junit.xml
 
 # ----------------------------------------------------------------
 # Ferramentas de desenvolvimento / Editor
 # ----------------------------------------------------------------
-
 # Visual Studio Code
 .vscode/
+.history
+*.code-workspace
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+# Jupyter Notebook
+.ipynb_checkpoints
+# Spyder
+.spyderproject
+.spyproject
+# Rope
+.ropeproject
 
 # ----------------------------------------------------------------
 # Sistemas Operacionais
 # ----------------------------------------------------------------
-
 # macOS
 .DS_Store
-
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
 # Windows
 Thumbs.db
-desktop.ini
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+# Linux
+*~
+.directory
+.Trash-*
+
+# ----------------------------------------------------------------
+# Bancos de dados
+# ----------------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# ----------------------------------------------------------------
+# Arquivos grandes (LFS)
+# ----------------------------------------------------------------
+# Adicione padrões para arquivos grandes que devem usar Git LFS
+# *.pdf
+# *.docx
+# *.xlsx
+# *.csv
+# *.zip
+# *.gz
