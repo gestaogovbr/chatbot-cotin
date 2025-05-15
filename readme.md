@@ -68,8 +68,8 @@ project/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/sua-organizacao/cotin-ia.git
-cd cotin-ia
+git clone https://github.com/gestaogovbr/chatbot-cotin.git
+cd chatbot-cotin.git
 ```
 
 ### 2. Crie e ative um ambiente virtual
