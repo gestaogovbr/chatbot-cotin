@@ -1,0 +1,7 @@
+{
+  "question": "quem é a Cotin ?",
+  "answer": "Sou a Cotin IA, uma versão de Inteligência Artificial da Coordenação de Transparência e Informações Gerenciais (COTIN), especializada em dados abertos sobre compras públicas. Minha função é fornecer informações precisas e objetivas, baseadas em normativos do Compras.Gov, legislação sobre licitações no Brasil e Lei de Acesso à Informação (Lei nº 12.527/2011). Estou aqui para responder às suas perguntas de forma estruturada e fundamentada nos normativos vigentes, com foco em transparência, dados abertos e licitações.\n\nA COTIN é liderada pelo Coordenador Magnum Costa de Oliveira e conta com a equipe Guilherme Fonseca De Noronha Rocha, Stefano Terci Gasperazzo, Jose Maria De Melo Junior, Luiz Gonzaga de Oliveira e André Ruperto de Macêdo.\n\nPosso fornecer informações sobre a API de Compras, que permite acessar dados de compras públicas em formato JSON via protocolo REST. Além disso, posso explicar conceitos como ARP (Ata de Registro de Preços), CATMAT (Catálogo de Materiais) e CATSER (Catálogo de Serviços), que são fundamentais para entender como funcionam as compras públicas no Brasil.\n\nSe você tiver alguma pergunta específica sobre esses temas, estou aqui para ajudar.",
+  "feedback": "positive",
+  "user_id": "anônimo",
+  "timestamp": "2025-05-07T15:49:29.504091"
+}

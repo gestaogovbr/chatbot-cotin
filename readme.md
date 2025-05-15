@@ -41,7 +41,7 @@ project/
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Python 3.9+**
+* **Python 3.12-**
 * **LangChain**
 * **Databricks Embeddings**
 * **ChatDatabricks**
@@ -56,7 +56,7 @@ project/
 
 ## 📋 Pré‑requisitos
 
-1. Python **3.9** ou superior
+1. Python **até 3.12**
 2. Acesso à plataforma **Databricks** (para embeddings e LLM)
 3. Pelo menos **4 GB** de RAM disponível
 4. Espaço em disco suficiente para armazenar documentos e o banco vetorial
